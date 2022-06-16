@@ -9,7 +9,7 @@
     "页面性能监控",
     "设备信息采集"
   ],
-  "main": "monitorjs.js",
+  "main": "./dist/monitorjs.min.js",
   "scripts": {
     "dev": "webpack --mode=development --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js"

@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry: {
-    monitorjs: [path.resolve(__dirname, './src/montiorjs.js')],
+    monitorjs: [path.resolve(__dirname, './src/index.js')],
   },
   output: {
     publicPath: '',
