@@ -1,8 +1,8 @@
 const path = require('path')
-const webpack = require('webpack')
+// const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const fileVersion = new Date().getTime()
+// const fileVersion = new Date().getTime()
 
 module.exports = {
   entry: {
@@ -32,11 +32,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
-            plugins: [
-              '@babel/plugin-transform-runtime',
-              // 指定corejs版本 2 仅支持全局变量，如Promise等 3 还支持实例属性，包括includes等
-              //   { corejs: 3 },
-            ],
+            plugins: [['@babel/plugin-transform-runtime', { corejs: 3 }]],
           },
         },
       },
@@ -58,13 +54,5 @@ module.exports = {
   plugins: [
     // 用于删除/清理构建文件夹的 webpack 插件
     new CleanWebpackPlugin(),
-
-    //  DefinePlugin 在 编译时 将你代码中的变量替换为其他值或表达式
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-      fileVersion, // 文件版本
-    }),
   ],
 }
