@@ -1,0 +1,39 @@
+{
+  "name": "monitorjs",
+  "version": "1.0.0",
+  "description": "前端异常监控、vue异常监控、js异常监控、页面性能监控、设备信息采集",
+  "keywords": [
+    "前端异常监控",
+    "vue异常监控",
+    "js异常监控",
+    "页面性能监控",
+    "设备信息采集"
+  ],
+  "main": "monitorjs.js",
+  "scripts": {
+    "dev": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eiiizong/monitorjs.git"
+  },
+  "author": "eiiizong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eiiizong/monitorjs/issues"
+  },
+  "homepage": "https://github.com/eiiizong/monitorjs#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/plugin-transform-runtime": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/runtime-corejs3": "^7.18.3",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.3",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
