@@ -58,7 +58,7 @@ class MonitorNetworkSpeed extends BaseMonitor {
    */
   reportNetworkSpeed() {
     this.getSpeed()
-    //定时上报
+    // 定时上报
     setInterval(() => {
       this.getSpeed()
     }, this.timeInterval)
@@ -78,7 +78,7 @@ class MonitorNetworkSpeed extends BaseMonitor {
         if (xhr.readyState === 4 && xhr.status === 200) {
           this.endTime = Date.now()
           fileSize = xhr.responseText.length
-          //单位（KB/s）
+          // 单位（KB/s）
           let speed = fileSize / ((this.endTime - this.startTime) / 1000) / 1024
           speed = speed.toFixed(2)
           let extendsInfo = this.getExtendsInfo()
@@ -94,7 +94,7 @@ class MonitorNetworkSpeed extends BaseMonitor {
             }),
           }
           console.log(
-            '````````````````````` network_speed `````````````````````',
+            '````````````````````` network_speed 网速 `````````````````````',
             data
           )
           new API(this.url).report(data)

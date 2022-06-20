@@ -1,10 +1,11 @@
 const path = require('path')
-// const webpack = require('webpack')
+const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-// const fileVersion = new Date().getTime()
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
   entry: {
     monitorjs: [path.resolve(__dirname, './src/index.js')],
   },
@@ -19,6 +20,7 @@ module.exports = {
   },
   devServer: {
     hot: true,
+    watchFiles: ['src/**/*'],
   },
   resolve: {
     extensions: ['.js'], // 自动解析确定的扩展
@@ -54,5 +56,10 @@ module.exports = {
   plugins: [
     // 用于删除/清理构建文件夹的 webpack 插件
     new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './demo/device.html'),
+      scriptLoading: 'blocking',
+    }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 }
