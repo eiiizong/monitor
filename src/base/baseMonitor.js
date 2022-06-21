@@ -138,5 +138,16 @@ class BaseMonitor {
       return ''
     }
   }
+
+  /**
+   * 获取当前页面路径
+   */
+  getLocationHref() {
+    if (window && window.location) {
+      return window.location.href
+    } else {
+      return ''
+    }
+  }
 }
 export default BaseMonitor
