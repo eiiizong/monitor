@@ -1,3 +1,4 @@
+import defaultConfig from '../config'
 import BaseMonitor from '../base/baseMonitor'
 import { ErrorLevelEnum, ErrorCategoryEnum } from '../base/baseConfig.js'
 
@@ -37,7 +38,7 @@ class MonitorNetworkSpeed extends BaseMonitor {
   /**
    * 上报定时间隔
    */
-  timeInterval = 60 * 1000
+  timeInterval = defaultConfig.networkSpeedReportingTimeInterval
 
   /**
    * 当前时间

@@ -1,3 +1,4 @@
+import axios from 'axios'
 /**
  * 数据持久化
  */
@@ -24,20 +25,18 @@ class API {
   sendInfo(data, isFetch) {
     let dataStr = JSON.stringify(data)
     try {
-      if (fetch && isFetch) {
-        fetch(this.url, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'POST',
-          body: dataStr,
-          mode: 'same-origin', // 告诉浏览器是同源，同源后浏览器不会进行预检请求
-          keepalive: true,
+      if (axios && isFetch) {
+        axios({
+          method: 'post',
+          url: this.url,
+          data: dataStr,
+        }).catch((err) => {
+          console.log('axios请求异常', err)
         })
         return
       }
-    } catch (error) {
-      console.log('fetch请求异常', error)
+    } catch (err) {
+      console.log('axios请求异常', err)
     }
     try {
       var xhr = new XMLHttpRequest()
@@ -45,8 +44,8 @@ class API {
       //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xhr.setRequestHeader('Content-Type', 'application/json')
       xhr.send(dataStr)
-    } catch (error) {
-      console.log(error)
+    } catch (err) {
+      console.log(err)
     }
   }
 
