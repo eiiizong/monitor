@@ -57,7 +57,7 @@ module.exports = {
     // 用于删除/清理构建文件夹的 webpack 插件
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './demo/device.html'),
+      template: path.resolve(__dirname, './demo/index.html'),
       scriptLoading: 'blocking',
     }),
     new webpack.HotModuleReplacementPlugin(),
