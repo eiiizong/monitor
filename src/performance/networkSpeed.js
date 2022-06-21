@@ -94,7 +94,7 @@ class MonitorNetworkSpeed extends BaseMonitor {
             }),
           }
           console.log(
-            '````````````````````` network_speed 网速 `````````````````````',
+            '````````````````````` network_speed  `````````````````````',
             data
           )
           new API(this.url).report(data)

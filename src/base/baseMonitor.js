@@ -107,13 +107,13 @@ class BaseMonitor {
       let extendsInfo = this.extendsInfo || {}
       let dynamicParams
       if (utils.isFunction(extendsInfo.getDynamic)) {
-        dynamicParams = extendsInfo.getDynamic() //获取动态参数
+        dynamicParams = extendsInfo.getDynamic() // 获取动态参数
       }
-      //判断动态方法返回的参数是否是对象
+      // 判断动态方法返回的参数是否是对象
       if (utils.isObject(dynamicParams)) {
         extendsInfo = { ...extendsInfo, ...dynamicParams }
       }
-      //遍历扩展信息，排除动态方法
+      // 遍历扩展信息，排除动态方法
       for (var key in extendsInfo) {
         if (!utils.isFunction(extendsInfo[key])) {
           //排除获取动态方法
