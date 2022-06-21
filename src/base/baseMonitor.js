@@ -1,6 +1,5 @@
 import { ErrorLevelEnum, ErrorCategoryEnum } from './baseConfig.js'
 import DeviceInfo from '../device'
-import API from './api.js'
 import utils from '../utils/utils.js'
 import TaskQueue from './taskQueue.js'
 
@@ -13,16 +12,16 @@ class BaseMonitor {
    * @param {*} params { reportUrl,extendsInfo }
    */
   constructor(params) {
-    this.category = ErrorCategoryEnum.UNKNOW_ERROR //错误类型
-    this.level = ErrorLevelEnum.INFO //错误等级
-    this.msg = '' //错误信息
-    this.url = '' //错误信息地址
-    this.line = '' //行数
-    this.col = '' //列数
-    this.errorObj = '' //错误堆栈
+    this.category = ErrorCategoryEnum.UNKNOW_ERROR // 错误类型
+    this.level = ErrorLevelEnum.INFO // 错误等级
+    this.msg = '' // 错误信息
+    this.url = '' // 错误信息地址
+    this.line = '' // 行数
+    this.col = '' // 列数
+    this.errorObj = '' // 错误堆栈
 
-    this.reportUrl = params.reportUrl //上报错误地址
-    this.extendsInfo = params.extendsInfo //扩展信息
+    this.reportUrl = params.reportUrl // 上报错误地址
+    this.extendsInfo = params.extendsInfo // 扩展信息
   }
 
   /**
@@ -32,7 +31,7 @@ class BaseMonitor {
     this.handleRecordError()
     //延迟记录日志
     setTimeout(() => {
-      TaskQueue.isStop && TaskQueue.fire() //停止则fire
+      TaskQueue.isStop && TaskQueue.fire() // 停止则fire
     }, 100)
   }
 

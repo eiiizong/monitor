@@ -18,12 +18,12 @@ class MonitorNetworkSpeed extends BaseMonitor {
   /**
    * 图片大小 bytes
    */
-  downloadSize = 241797
+  downloadSize = defaultConfig.networkSpeed.downloadSize
 
   /**
    * 图片地址
    */
-  filePath = 'https://file.40017.cn/tcservice/common/imags/network_speed.png'
+  filePath = defaultConfig.networkSpeed.filePath
 
   /**
    * 开始时间
@@ -38,7 +38,7 @@ class MonitorNetworkSpeed extends BaseMonitor {
   /**
    * 上报定时间隔
    */
-  timeInterval = defaultConfig.networkSpeedReportingTimeInterval
+  timeInterval = defaultConfig.networkSpeed.timeInterval
 
   /**
    * 当前时间
