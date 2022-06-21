@@ -9,35 +9,35 @@ class API {
 
   /**
    * 上报信息 （默认方式）
-   * isFetch ：是否优先通过fetch上报
+   * isAxios ：是否优先通过axios上报
    */
-  report(data, isFetch) {
+  report(data, isAxios) {
     if (!this.checkUrl(this.url)) {
       console.log('monitorjs 上报信息url地址格式不正确,url=', this.url)
       return
     }
-    this.sendInfo(data, isFetch)
+    this.sendInfo(data, isAxios)
   }
 
   /**
    * 发送消息
    */
-  sendInfo(data, isFetch) {
+  sendInfo(data, isAxios) {
     data = JSON.stringify(data)
     try {
-      if (axios && isFetch) {
+      if (axios && isAxios) {
         axios({
           method: 'post',
           url: this.url,
           data,
           timeout: 60 * 1000,
         }).catch((err) => {
-          console.log('monitorjs axios post 请求异常', err)
+          console.error('monitorjs axios post请求异常', err)
         })
         return
       }
     } catch (err) {
-      console.log('monitorjs axios请求异常', err)
+      console.error('monitorjs axios异常', err)
     }
     try {
       var xhr = new XMLHttpRequest()
@@ -46,7 +46,7 @@ class API {
       xhr.setRequestHeader('Content-Type', 'application/json')
       xhr.send(data)
     } catch (err) {
-      console.log(err)
+      console.error('monitorjs axios异常', err)
     }
   }
 
@@ -55,15 +55,18 @@ class API {
    */
   reportByImg(data) {
     if (!this.checkUrl(this.url)) {
-      console.log('monitorjs 上报信息url地址格式不正确,url=', this.url)
+      console.error(
+        'monitorjs通过img方式上报，上报信息url地址格式不正确，url=',
+        this.url
+      )
       return
     }
     try {
       var img = new Image()
       img.src =
         this.url + '?v=' + new Date().getTime() + '&' + this.formatParams(data)
-    } catch (error) {
-      console.log(error)
+    } catch (err) {
+      console.error('monitorjs通过img方式上报，catch 捕获错误', err)
     }
   }
 
