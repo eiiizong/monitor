@@ -2,15 +2,15 @@ import BaseMonitor from '../base/baseMonitor.js'
 import { ErrorCategoryEnum, ErrorLevelEnum } from '../base/baseConfig.js'
 
 /**
- * vue错误
+ * vue3错误
  */
-class VueError extends BaseMonitor {
+class Vue3Error extends BaseMonitor {
   constructor(params) {
     super(params)
   }
 
   /**
-   * 处理Vue错误提示
+   * 处理Vue3错误提示
    */
   handleError(Vue) {
     if (!Vue) {
@@ -23,7 +23,7 @@ class VueError extends BaseMonitor {
           stack: error.stack,
           info: info,
         }
-        console.log(error, vm, info, 9988)
+        console.log(error, vm, info, 678456)
         if (Object.prototype.toString.call(vm) === '[object Object]') {
           metaData.componentName = vm._isVue
             ? vm.$options.name || vm.$options._componentTag
@@ -35,9 +35,9 @@ class VueError extends BaseMonitor {
         this.category = ErrorCategoryEnum.VUE_ERROR
         this.recordError()
       } catch (error) {
-        console.log('vue3错误异常', error)
+        console.log('vue错误异常', error)
       }
     }
   }
 }
-export default VueError
+export default Vue3Error

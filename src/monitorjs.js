@@ -5,6 +5,7 @@ import {
   PromiseError,
   ResourceError,
   VueError,
+  Vue3Error,
 } from './error'
 import { AjaxLibEnum } from './base/baseConfig.js'
 import MonitorPerformance from './performance'
@@ -52,7 +53,11 @@ class MonitorJS {
       new ConsoleError(param).handleError()
     }
     if (this.vueError && options.vue) {
-      new VueError(param).handleError(options.vue)
+      if (options.vueVersion === 3) {
+        new Vue3Error(param).handleError(options.vue)
+      } else {
+        new VueError(param).handleError(options.vue)
+      }
     }
   }
 

@@ -7,10 +7,34 @@
     <title>示例-获取设备信息</title>
     <!-- 获取用户所在城市和ip地址 -->
     <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="https://unpkg.com/vue@3.2.36/dist/vue.global.js"></script>
     <!-- <script src="../dist/monitorjs.min.js"></script> -->
   </head>
   <body>
-    <script type="text/javascript"></script>
-    <script></script>
+    <button id="e_1">jsError</button>
+    <button>promiseError</button>
+    <button>resourceError</button>
+    <button>ajaxError</button>
+    <button>consoleError</button>
+    <button id="app" @click="clickBtn">vueError</button>
+
+    <script>
+      document.getElementById('e_1').addEventListener('click', function () {
+        var a = b
+      })
+
+      const app = Vue.createApp({
+        el: '#app',
+        data() {
+          return {}
+        },
+        methods: {
+          clickBtn() {
+            console.log(abc)
+          },
+        },
+      })
+    </script>
   </body>
 </html>
