@@ -99,7 +99,7 @@ class MonitorNetworkSpeed extends BaseMonitor {
           `,
             data
           )
-          new API(this.url).report(data)
+          new API(this.url).report(data, true)
         }
       }
       xhr.open('GET', this.filePath + '?rand=' + Math.random(), true)

@@ -13,7 +13,7 @@ class API {
    */
   report(data, isFetch) {
     if (!this.checkUrl(this.url)) {
-      console.log('上报信息url地址格式不正确,url=', this.url)
+      console.log('monitorjs 上报信息url地址格式不正确,url=', this.url)
       return
     }
     this.sendInfo(data, isFetch)
@@ -23,27 +23,28 @@ class API {
    * 发送消息
    */
   sendInfo(data, isFetch) {
-    let dataStr = JSON.stringify(data)
+    data = JSON.stringify(data)
     try {
       if (axios && isFetch) {
         axios({
           method: 'post',
           url: this.url,
-          data: dataStr,
+          data,
+          timeout: 60 * 1000,
         }).catch((err) => {
-          console.log('axios请求异常', err)
+          console.log('monitorjs axios post 请求异常', err)
         })
         return
       }
     } catch (err) {
-      console.log('axios请求异常', err)
+      console.log('monitorjs axios请求异常', err)
     }
     try {
       var xhr = new XMLHttpRequest()
       xhr.open('POST', this.url, true)
       //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xhr.setRequestHeader('Content-Type', 'application/json')
-      xhr.send(dataStr)
+      xhr.send(data)
     } catch (err) {
       console.log(err)
     }
@@ -54,7 +55,7 @@ class API {
    */
   reportByImg(data) {
     if (!this.checkUrl(this.url)) {
-      console.log('上报信息url地址格式不正确,url=', this.url)
+      console.log('monitorjs 上报信息url地址格式不正确,url=', this.url)
       return
     }
     try {
