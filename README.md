@@ -1,43 +1,49 @@
 ### 1、简介
+
 monitorjs 是一款前端监控工具，主要包含下面几个方面信息监控：
-* 1）前端异常监控；
-* 2）页面性能监控；
-* 3）设备信息采集；
+
+- 1）前端异常监控；
+- 2）页面性能监控；
+- 3）设备信息采集；
 
 ### 2、异常捕获详情
-* 1）js错误信息监控；
-* 2）支持vue错误信息监控（需要将vue传入，并设置vueError:true）；
-* 3）支持promise中未捕获异常信息的抓取；
-* 4）支持ajax库（xhr）异常信息捕获；
-* 5）支持console.error错误信息捕获;
-* 6）支持资源错误信息捕获。
+
+- 1）js 错误信息监控；
+- 2）支持 vue 错误信息监控（需要将 vue 传入，并设置 vueError:true）；
+- 3）支持 promise 中未捕获异常信息的抓取；
+- 4）支持 ajax 库（xhr）异常信息捕获；
+- 5）支持 console.error 错误信息捕获;
+- 6）支持资源错误信息捕获。
 
 ### 3、页面性能监控
-* 1）重定向的时间；
-* 2）DNS 查询时间；
-* 3）DNS 缓存时间；
-* 4）卸载页面的时间；
-* 5）tcp连接耗时；
-* 6）内容加载完成的时间；
-* 7）解析dom树耗时；
-* 8）白屏时间；
-* 9）页面加载完成的时间；
-* ...
+
+- 1）重定向的时间；
+- 2）DNS 查询时间；
+- 3）DNS 缓存时间；
+- 4）卸载页面的时间；
+- 5）tcp 连接耗时；
+- 6）内容加载完成的时间；
+- 7）解析 dom 树耗时；
+- 8）白屏时间；
+- 9）页面加载完成的时间；
+- ...
 
 ### 4、设备信息采集
-* 1）设备类型；
-* 2）操作系统；
-* 3）操作系统版本；
-* 4）屏幕高、屏幕宽；
-* 5）当前使用的语言-国家；
-* 6）联网类型；
-* 7）横竖屏；
-* 8）浏览器信息；
-* 9）浏览器指纹；
-* 10）userAgent；
-* ...
+
+- 1）设备类型；
+- 2）操作系统；
+- 3）操作系统版本；
+- 4）屏幕高、屏幕宽；
+- 5）当前使用的语言-国家；
+- 6）联网类型；
+- 7）横竖屏；
+- 8）浏览器信息；
+- 9）浏览器指纹；
+- 10）userAgent；
+- ...
 
 ### 5、引入方式
+
 ```
 1、支持es6方式引入
 import { MonitorJS } from "monitorjs";
@@ -52,7 +58,8 @@ define(['monitorjs'],(MonitorJS)=>{});
 <script src="../node_modules/monitorjs/dist/monitorjs.min.js"></script>
 ```
 
-### 6、异常监控Usage
+### 6、异常监控 Usage
+
 ```
 1）异常监控初始化代码：
 new MonitorJS().init({
@@ -64,7 +71,7 @@ new MonitorJS().init({
         a:"", //自定义信息a（名称可自定义）可参考测试栗子 module
         b:"", //自定义信息b（名称可自定义）
         getDynamic:()=>{  //获取动态传参  1.4.5版本及以后支持该方式
-            
+
         }
     }
 });
@@ -83,7 +90,7 @@ new MonitorJS().init({
         a:"", //自定义信息a（名称可自定义）可参考测试栗子 module
         b:"", //自定义信息b（名称可自定义）
         getDynamic:()=>{  //获取动态传参  1.4.5版本及以后支持该方式
-            
+
         }
     }
 }
@@ -98,7 +105,8 @@ new MonitorJS().init({
 }
 ```
 
-### 7、上报页面性能Usage
+### 7、上报页面性能 Usage
+
 ```
 1）页面性能信息采集代码：
 new MonitorJS().monitorPerformance({
@@ -165,39 +173,112 @@ new MonitorJS().monitorPerformance({
 ```
 
 ### 8、使用时机
-1） 普通项目，页面初始化时候，就可以完成初始化监控工具（最好在业务代码的前面，避免监控有漏）；
-2） vue项目，需要在new Vue之前初始化监控工具，避免监控有漏；
 
-***
+1） 普通项目，页面初始化时候，就可以完成初始化监控工具（最好在业务代码的前面，避免监控有漏）；
+2） vue 项目，需要在 new Vue 之前初始化监控工具，避免监控有漏；
+
+---
+
 ### 9、版本变更说明
+
 ##### ~v2.2.0
->1、修复无法控制不收集jsError、promiseError、resourceError、ajaxError、consoleError的问题，并显式控制consoleError和vueError
+
+> 1、修复无法控制不收集 jsError、promiseError、resourceError、ajaxError、consoleError 的问题，并显式控制 consoleError 和 vueError
+
 ##### ~v2.1.7
->1、性能上报添加isRScript、isRCSS、isRFetch、isRXHR、isRLink、isRIMG控制参数，自定义性能数据类型
->2、上报信息添加isFetch控制
->3、优化fetch上报，防止同源检测报错
+
+> 1、性能上报添加 isRScript、isRCSS、isRFetch、isRXHR、isRLink、isRIMG 控制参数，自定义性能数据类型
+> 2、上报信息添加 isFetch 控制
+> 3、优化 fetch 上报，防止同源检测报错
+
 ##### ~v2.1.1
->1、优化数据上报
->2、添加测网速功能(每分钟上报一次)
->3、修改数据上报fire规则
+
+> 1、优化数据上报
+> 2、添加测网速功能(每分钟上报一次)
+> 3、修改数据上报 fire 规则
+
 ##### ~v2.0.0
->1、由于各个框架都有使用js原生console.info 、console.warn 、console.error记录日志，为了避免这部分信息也被持久化，决定重新命名console日志， console日志细分：console.tInfo 、console.tWarn、console.tError ，通过添加前缀t，代替原来console的api
+
+> 1、由于各个框架都有使用 js 原生 console.info 、console.warn 、console.error 记录日志，为了避免这部分信息也被持久化，决定重新命名 console 日志， console 日志细分：console.tInfo 、console.tWarn、console.tError ，通过添加前缀 t，代替原来 console 的 api
+
 ##### ~v1.8.0
->1、调整img资源报警级别（warning）
+
+> 1、调整 img 资源报警级别（warning）
+
 ##### ~v1.7.0
->1、规范持久化信息小驼峰命名
->2、优化持久化地址url检查
+
+> 1、规范持久化信息小驼峰命名
+> 2、优化持久化地址 url 检查
+
 ##### ~v1.6.0
->1、持久化数据支持 application/json 方式
-##### ~v1.5.0 
->1、console日志细分：console.info 、console.warn 、console.error ，且支持数据持久化；
->2、通过消息队列方式，优化消息持久化，防止多次记录console日志或者极端情况下消息被新消息顶替问题；
+
+> 1、持久化数据支持 application/json 方式
+
+##### ~v1.5.0
+
+> 1、console 日志细分：console.info 、console.warn 、console.error ，且支持数据持久化；
+> 2、通过消息队列方式，优化消息持久化，防止多次记录 console 日志或者极端情况下消息被新消息顶替问题；
+
 ##### ~v1.4.5
->1、支持动态获取参数
+
+> 1、支持动态获取参数
 
 #### ……
 
 #
 
-##### 项目稳定，前端监控必不可少 ^_^
+##### 项目稳定，前端监控必不可少 ^\_^
+
 ##### 欢迎留言，一起探讨前端问题 ~~
+
+### 数据上报格式
+
+```json
+// 网速上报
+{
+  "category": "network_speed",
+  "logInfo": {
+    "curTime": "2022-06-21 11:30:51",
+    "pageId": "page_0001",
+    "networkSpeed": "1574.20",
+    "deviceInfo": {
+      "deviceType": "PC",
+      "OS": "Mac OS",
+      "OSVersion": "10.15.7",
+      "screenHeight": 1080,
+      "screenWidth": 1920,
+      "language": "zh_CN",
+      "netWork": "4g",
+      "orientation": "横屏",
+      "browserInfo": "Chrome（版本: 99.0.4844.51&nbsp;&nbsp;内核: Blink）",
+      "fingerprint": "06416a90",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.04844.51 Safari/537.36"
+    }
+  },
+  "logType": "Info"
+}
+```
+
+```json
+
+```
+
+```json
+
+```
+
+```json
+
+```
+
+```json
+
+```
+
+```json
+
+```
+
+```json
+
+```

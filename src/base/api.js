@@ -15,7 +15,6 @@ class API {
       console.log('上报信息url地址格式不正确,url=', this.url)
       return
     }
-    console.log('上报地址：' + this.url)
     this.sendInfo(data, isFetch)
   }
 

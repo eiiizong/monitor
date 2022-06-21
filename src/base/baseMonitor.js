@@ -133,7 +133,7 @@ class BaseMonitor {
   getDeviceInfo() {
     try {
       let deviceInfo = DeviceInfo.getDeviceInfo()
-      return JSON.stringify(deviceInfo)
+      return deviceInfo
     } catch (error) {
       console.log(error)
       return ''

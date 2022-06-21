@@ -69,7 +69,6 @@ class MonitorJS {
     let recordFunc = () => {
       new MonitorPerformance(options).record()
     }
-    recordFunc()
     window.removeEventListener('unload', recordFunc)
     window.addEventListener('unload', recordFunc)
   }

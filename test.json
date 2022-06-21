@@ -1,1 +1,22 @@
-{\"curTime\":\"2022-06-16 16:49:45\",\"pageId\":\"page_0001\",\"networkSpeed\":\"1163.20\",\"deviceInfo\":\"{\\\"deviceType\\\":\\\"PC\\\",\\\"OS\\\":\\\"Mac OS\\\",\\\"OSVersion\\\":\\\"10.15.7\\\",\\\"screenHeight\\\":1080,\\\"screenWidth\\\":1920,\\\"language\\\":\\\"zh_CN\\\",\\\"netWork\\\":\\\"4g\\\",\\\"orientation\\\":\\\"横屏\\\",\\\"browserInfo\\\":\\\"Chrome（版本: 99.0.4844.51&nbsp;&nbsp;内核: Blink）\\\",\\\"fingerprint\\\":\\\"64185176\\\",\\\"userAgent\\\":\\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36\\\"}\"}
+{
+  "category": "network_speed",
+  "logInfo": {
+    "curTime": "2022-06-21 11:30:51",
+    "pageId": "page_0001",
+    "networkSpeed": "1574.20",
+    "deviceInfo": {
+      "deviceType": "PC",
+      "OS": "Mac OS",
+      "OSVersion": "10.15.7",
+      "screenHeight": 1080,
+      "screenWidth": 1920,
+      "language": "zh_CN",
+      "netWork": "4g",
+      "orientation": "横屏",
+      "browserInfo": "Chrome（版本: 99.0.4844.51&nbsp;&nbsp;内核: Blink）",
+      "fingerprint": "06416a90",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.04844.51 Safari/537.36"
+    }
+  },
+  "logType": "Info"
+}
